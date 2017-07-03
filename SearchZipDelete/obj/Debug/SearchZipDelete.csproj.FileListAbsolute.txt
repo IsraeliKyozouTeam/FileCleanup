@@ -1,0 +1,6 @@
+c:\users\guyb2\documents\visual studio 2015\Projects\SearchZipDelete\SearchZipDelete\bin\Debug\SearchZipDelete.exe.config
+c:\users\guyb2\documents\visual studio 2015\Projects\SearchZipDelete\SearchZipDelete\bin\Debug\SearchZipDelete.exe
+c:\users\guyb2\documents\visual studio 2015\Projects\SearchZipDelete\SearchZipDelete\bin\Debug\SearchZipDelete.pdb
+c:\users\guyb2\documents\visual studio 2015\Projects\SearchZipDelete\SearchZipDelete\obj\Debug\SearchZipDelete.csprojResolveAssemblyReference.cache
+c:\users\guyb2\documents\visual studio 2015\Projects\SearchZipDelete\SearchZipDelete\obj\Debug\SearchZipDelete.exe
+c:\users\guyb2\documents\visual studio 2015\Projects\SearchZipDelete\SearchZipDelete\obj\Debug\SearchZipDelete.pdb
