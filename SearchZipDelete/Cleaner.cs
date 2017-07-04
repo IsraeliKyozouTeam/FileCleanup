@@ -31,7 +31,7 @@ namespace SearchZipDelete
             companyID = id;
         }
 
-        public void CreateDirectoryWithContext(string path, string fileName)
+        public bool CreateDirectoryWithContext(string path, string fileName)
         {
             try
             {
@@ -48,32 +48,12 @@ namespace SearchZipDelete
                 Console.WriteLine(e.Message);
             }
 
-            CreateTextFileInsideDirectory(path, fileName);
+            return CreateTextFileInsideDirectory(path, fileName);
 
         }
         
-
-
-        void LogAndMoveFileTo(StreamWriter file, FileInfo fi, string folderPathString)
-        {
-            string writeToFile = " Path: " + fi.DirectoryName + "\\" + fi.Name;
-            file.WriteLine(writeToFile);
-            //Console.WriteLine(writeToFile);
-            if (File.Exists(folderPathString + "\\" + fi.Name) == false)
-            {
-                try
-                {
-                    File.Move(fi.DirectoryName + "\\" + fi.Name, folderPathString + "\\" + fi.Name);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Exeption :: Dint move file :: " + e.Message);
-                    log.addGeneralException(e);
-                }
-            }
-        }
-        
-        void CreateTextFileInsideDirectory(string folderPathString, string fileName)
+         
+        bool CreateTextFileInsideDirectory(string folderPathString, string fileName)
         {
             if (!File.Exists(folderPathString))
             {
@@ -100,6 +80,30 @@ namespace SearchZipDelete
             else
             {
                 Console.WriteLine("File \"{0}\" already exists.", fileName);
+                return true;
+            }
+            
+            return false;
+        }
+        
+
+
+        void LogAndMoveFileTo(StreamWriter file, FileInfo fi, string folderPathString)
+        {
+            string writeToFile = " Path: " + fi.DirectoryName + "\\" + fi.Name;
+            file.WriteLine(writeToFile);
+            //Console.WriteLine(writeToFile);
+            if (File.Exists(folderPathString + "\\" + fi.Name) == false)
+            {
+                try
+                {
+                    File.Move(fi.DirectoryName + "\\" + fi.Name, folderPathString + "\\" + fi.Name);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Exeption :: Dint move file :: " + e.Message);
+                    log.addGeneralException(e);
+                }
             }
         }
 
@@ -135,7 +139,10 @@ namespace SearchZipDelete
             string pathString = Path.Combine(folderPathString, fileName);
 
 
-            CreateDirectoryWithContext(folderPathString, fileName);
+            bool fileExists = CreateDirectoryWithContext(folderPathString, fileName);
+            
+            if(fileExists)
+                return;
 
             StreamWriter file = new StreamWriter(pathString);
             
