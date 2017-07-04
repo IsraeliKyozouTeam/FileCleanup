@@ -1,9 +1,17 @@
-public Interface IFileFinder
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SearchZipDelete
 {
-    void AddPathToPathList(string path);
+    public interface IFileFinder
+    {
+        bool AddPathToPathList(string path);
     
-    void DeleteAllFilesInPaths();
+        void DeleteAllFilesInPaths();
     
-    void ConcentrateFilesInPathsTo(string pathTo);
-    
+        void ConcentrateFilesInPathsTo(string pathTo);
+    }
 }

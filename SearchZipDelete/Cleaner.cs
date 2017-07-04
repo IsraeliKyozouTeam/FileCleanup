@@ -23,7 +23,7 @@ namespace SearchZipDelete
             
             search = new Search();
 
-            this.zipPath = zipPath = @"C:\Users\guyb2\Desktop\SearchZipDelete\";
+            this.zipPath = zipPath;
         }
 
         public void InsertCompanyID(string id)
@@ -124,8 +124,9 @@ namespace SearchZipDelete
         }
 
 
-
-        public void Manipulate() {
+        
+        public void LogAndStoreAllFilesByID()
+        {
             //base directory
             //search where userinput is the company id
             search.WalkDirectoryTree(root, companyID);

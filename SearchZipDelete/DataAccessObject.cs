@@ -9,10 +9,14 @@ namespace SearchZipDelete
     class DataAccessObject
     {
         FileDataSetTableAdapters.QueriesTableAdapter adapter;
-        public DataAccessObject() {
+
+        public DataAccessObject()
+        {
             adapter = new FileDataSetTableAdapters.QueriesTableAdapter();
         }
-        public object getCompanyInfo(int id) {
+
+        public object getCompanyInfo(int id)
+        {
             return adapter.GetFilesRowsPerCompanyId(id);             
         }
     }
