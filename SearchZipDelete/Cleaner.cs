@@ -2,6 +2,7 @@
 using System.IO;
 using System.IO.Compression;
 using System.Security.AccessControl;
+using System.IO.Compression;
 
 namespace SearchZipDelete
 {
@@ -67,7 +68,17 @@ namespace SearchZipDelete
             }
         }
         public void ZipDir(string folderName, string identifier) {
-
+            if (Directory.Exists(folderName) && dirRegistered)
+            {
+                CleanDirectory(folderName, identifier);
+                ZipFile.CreateFromDirectory(folderName, folderName);
+            }
+            else
+            {
+                Directory.CreateDirectory(folderName);
+                CleanDirectory(folderName, identifier);
+                ZipFile.CreateFromDirectory(folderName, folderName);
+            }
         }
         #region Old Code
         /*
