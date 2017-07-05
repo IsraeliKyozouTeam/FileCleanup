@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace SearchZipDelete
 {
@@ -60,21 +61,30 @@ namespace SearchZipDelete
 
             foreach (FileInfo fi in fileArray)
             {
-                idToExtension.Add(int.Parse(fi.Name), fi.Extension);
-                IDCollection.Add(int.Parse(fi.Name));
+                string name = "";
+
+                name = Regex.Replace(fi.Name, fi.Extension , "");
+
+                idToExtension.Add(int.Parse(name), fi.Extension.ToString());
+                IDCollection.Add(int.Parse(name));
+                
             }
         }
         
         public List<int> DBToDriveCheck()
         {
             List<int> idList = new List<int>();
-            
+
+            int i = 1;
+
             foreach (System.Data.DataRow row in dao.ds.TCDB_FilesToDelete.Rows)
             {
                 int id = Convert.ToInt32(row["reportid"].ToString());
 
                 if (IDCollection.Contains(id) == false)
                     idList.Add(id);
+
+                Console.WriteLine(i++);
             }
 
             
@@ -85,9 +95,10 @@ namespace SearchZipDelete
         public List<int> DriveToDBCheck()
         {
             List<int> idList = new List<int>();
-
-            DataAccessObject dao = new DataAccessObject();
+            
             FileDataSet ds = new FileDataSet();
+
+            int i = 1;
 
             foreach (int id in IDCollection)
             {
@@ -95,6 +106,8 @@ namespace SearchZipDelete
 
                 if (row == null)
                     idList.Add(id);
+
+                Console.WriteLine(i++);
             }
 
             return idList;
@@ -110,14 +123,16 @@ namespace SearchZipDelete
             writer.WriteLineTo(filePath, "ID's that exist in the Harddrive but not the Database");
             foreach (int id in discrepencyList)
             {
+                Console.WriteLine(id);
                 writer.WriteLineTo(filePath, id.ToString());
             }
-
+            
             discrepencyList = DBToDriveCheck();
 
             writer.WriteLineTo(filePath, "ID's that exist in the Database but not the Harddrive");
             foreach (int id in discrepencyList)
             {
+                Console.WriteLine(id);
                 writer.WriteLineTo(filePath, id.ToString());
             }
         }

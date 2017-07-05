@@ -7,16 +7,13 @@ namespace SearchZipDelete
         static void Main(string[] args)
         {
 
-            int id = 0;
+            ReportsManager rm = new ReportsManager();
 
-            Cleaner cleaner = new Cleaner(@"C:\Users\Sean\Desktop\FileCleanup-TestBranch\Test", @"C:\Users\Sean\Desktop\FileCleanup-TestBranch");
+            string pathToID = @"C:\Users\roysh_000\Desktop\TestDir\Reports2";
 
-            FileDataSet ds = new FileDataSet();
-            DataAccessObject dao = new DataAccessObject();
+            rm.RegisterIDFromFile(pathToID);
 
-            ds.TCDB_FilesToDelete.Rows.Add(dao.getCompanyInfo(id));
-
-            cleaner.CreateDirectoryWithContext(@"C:\Users\Sean\Desktop\FileCleanup-TestBranch", "folder");
+            rm.WriteDiscrpeneciesToFile(@"C:\Users\roysh_000\Desktop\TestDir\Disc.txt");
 
 
 
