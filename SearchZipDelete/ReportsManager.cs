@@ -70,6 +70,8 @@ namespace SearchZipDelete
 
         }
 
+        public Write
+
 
 
 
