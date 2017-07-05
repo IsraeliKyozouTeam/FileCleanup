@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SearchZipDelete
 {
-    class Manipulator
+    class ReportsManager
     {
 
         public Searcher searcher { get; protected set; }
@@ -15,7 +15,7 @@ namespace SearchZipDelete
 
         
 
-        public Manipulator()
+        public ReportsManager()
         {
             searcher = new Searcher();
             writer = new Writer();
@@ -23,7 +23,7 @@ namespace SearchZipDelete
             
         }
 
-        public void RegisterURL(string url)
+        public void RegisterReport(int reportID)
         {
 
         }
