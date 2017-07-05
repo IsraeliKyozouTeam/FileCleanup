@@ -18,7 +18,7 @@ namespace SearchZipDelete
         void CleanDirectory(string dirTo, string identifier);
 
         // Zips a specified folder in the specified directory
-        void ZipDir(string folderName);
+        void ZipDir(string folderName, string identifier);
         
     }
 }
