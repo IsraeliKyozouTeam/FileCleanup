@@ -7,11 +7,11 @@ using System.IO;
 
 namespace SearchZipDelete
 {
-    public class FileManipulator : IFileFinder
+    class FileFinder : IFileFinder
     {
         ExceptionLogger log;
         List<string> PathList;
-        public FileManipulator()
+        public FileFinder()
         {
             log = new ExceptionLogger();
             PathList = new List<string>();
