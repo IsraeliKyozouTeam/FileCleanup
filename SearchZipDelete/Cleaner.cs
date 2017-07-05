@@ -12,13 +12,7 @@ namespace SearchZipDelete
         public Searcher search { get; protected set; }
         public DirectoryInfo root { get; protected set; }
         
-
-
-
-
-
-
-
+        
 
         #region Old Version of Cleaner
 
