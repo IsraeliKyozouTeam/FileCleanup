@@ -9,7 +9,7 @@ namespace SearchZipDelete
     {
 
         public ExceptionLogger log { get; protected set; }
-        public Search search { get; protected set; }
+        public Searcher search { get; protected set; }
         public DirectoryInfo root { get; protected set; }
 
         public string companyID { get; protected set; }
@@ -21,7 +21,7 @@ namespace SearchZipDelete
             root = new DirectoryInfo(rootFolder);
             log = new ExceptionLogger();
             
-            search = new Search();
+            search = new Searcher();
 
             this.zipPath = zipPath;
         }
