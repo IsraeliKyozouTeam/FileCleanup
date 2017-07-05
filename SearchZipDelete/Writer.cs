@@ -30,13 +30,19 @@ namespace SearchZipDelete
 
         public void WriteTo(string path)
         {
-            
-            if (Uri.IsWellFormedUriString(path, UriKind.Absolute))
+
+            try
             {
                 StreamWriter writer = new StreamWriter(path);
                 writer.Write(textToWrite);
                 writer.Close();
             }
+            catch (Exception)
+            {
+                
+            }
+                
+            
         }
     }
 }
