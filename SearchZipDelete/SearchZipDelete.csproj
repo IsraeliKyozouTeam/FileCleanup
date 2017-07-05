@@ -53,7 +53,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FileDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FileFinder.cs" />
+    <Compile Include="FileManipulator.cs" />
+    <Compile Include="ICleaner.cs" />
     <Compile Include="IFileFinder.cs" />
     <Compile Include="IWriter.cs" />
     <Compile Include="Manipulator.cs" />

@@ -13,7 +13,7 @@ namespace SearchZipDelete
 
         string textToWrite;
 
-        public Writer(string textToWrite)
+        public Writer(string textToWrite = "")
         {
             this.textToWrite = textToWrite;
         }
