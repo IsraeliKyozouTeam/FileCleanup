@@ -5,26 +5,72 @@ using System.Security.AccessControl;
 
 namespace SearchZipDelete
 {
-    public class Cleaner
+    public class Cleaner : ICleaner
     {
 
         public ExceptionLogger log { get; protected set; }
         public Searcher search { get; protected set; }
         public DirectoryInfo root { get; protected set; }
+        public FileManipulator fileManip { get; protected set; }
+        public Writer writer { get; protected set; }
+        public bool dirRegistered;
+       
 
-        public string companyID { get; protected set; }
-        public string zipPath { get; protected set; }
-
-        public Cleaner(string rootFolder, string zipPath)
+        public Cleaner()
         {
 
-            root = new DirectoryInfo(rootFolder);
+            root = new DirectoryInfo("");
             log = new ExceptionLogger();
-            
+            writer = new Writer();
             search = new Searcher();
-
-            this.zipPath = zipPath;
+            fileManip = new FileManipulator();
+            dirRegistered = false;
+           
         }
+        public bool RegisterDirectory(string dir) {
+            try
+            {
+                string path = Path.GetFullPath(dir);
+                if (Directory.Exists(path))
+                {
+                    dirRegistered = true;
+                }
+                else
+                    dirRegistered = false;
+                return dirRegistered;
+            }
+            catch (Exception e)
+            {
+                log.addGeneralException(e);
+                return false;
+            }
+
+        }
+        public void UnregisterDirectory() {
+            root = new DirectoryInfo("");
+            dirRegistered = false;
+        }
+        public void CleanDirectory(string dirTo, string identifier) {
+            search.WalkDirectoryTree(root, identifier);
+            foreach (FileInfo file in search.files)
+            {
+                try
+                {
+                    File.Move(file.DirectoryName + "\\" + file.Name, dirTo + "\\" + file.Name);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Exeption :: Dint move file :: " + e.Message);
+                    log.addGeneralException(e);
+                    continue;
+                }
+            }
+        }
+        public void ZipDir(string folderName, string identifier) {
+
+        }
+        #region Old Code
+        /*
 
         public void InsertCompanyID(string id)
         {
@@ -159,8 +205,9 @@ namespace SearchZipDelete
             
 
             
-        }      
-                       
+        }      */
+        #endregion
+
     }
     
 

@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace SearchZipDelete
 {
-    class Writer : IWriter
+    public class Writer : IWriter
     {
         
 

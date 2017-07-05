@@ -13,8 +13,8 @@ namespace SearchZipDelete
         // dir is valid and false if not. UnregisterDirectory unregisters the current dir and tells the
         // object that the cleaner is no longer in possesion of a registered dir (via bool most likely).
         bool RegisterDirectory(string dir);
-
         void UnregisterDirectory();
+        
 
         // This function recieves a directory and cleans it by taking all the files
         // identified by the identifier and moves them to the specified dirTo.
