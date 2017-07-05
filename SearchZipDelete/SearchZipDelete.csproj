@@ -68,7 +68,6 @@
     <Compile Include="Writer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="FileDataSet.xsc">
       <DependentUpon>FileDataSet.xsd</DependentUpon>
     </None>

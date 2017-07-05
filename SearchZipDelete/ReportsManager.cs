@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace SearchZipDelete
 {
@@ -19,12 +20,16 @@ namespace SearchZipDelete
 
 
         public HashSet<int> IDCollection { get; protected set; }
+        public Dictionary<int, string> idToExtension { get; protected set; }
 
         public ReportsManager()
         {
             searcher = new Searcher();
             writer = new Writer();
             fileManip = new FileManipulator();
+
+            IDCollection = new HashSet<int>();
+            idToExtension = new Dictionary<int, string>();
 
             dao = new DataAccessObject();
             dao.Fill();
@@ -43,6 +48,20 @@ namespace SearchZipDelete
             {
                 if (IDCollection.Contains(id) == false)
                     IDCollection.Add(id);
+            }
+        }
+
+        public void RegisterIDFromFile(string filePath)
+        {
+            fileManip.AddPathToPathList(filePath);
+
+            DirectoryInfo root = new DirectoryInfo(filePath);
+            FileInfo[] fileArray = root.GetFiles();
+
+            foreach (FileInfo fi in fileArray)
+            {
+                idToExtension.Add(int.Parse(fi.Name), fi.Extension);
+                IDCollection.Add(int.Parse(fi.Name));
             }
         }
         
