@@ -5,7 +5,7 @@ using System.Security.AccessControl;
 
 namespace SearchZipDelete
 {
-    public class Cleaner : ICleaner
+    public class Cleaner
     {
 
         public ExceptionLogger log { get; protected set; }
