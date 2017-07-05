@@ -5,12 +5,27 @@ using System.Security.AccessControl;
 
 namespace SearchZipDelete
 {
-    public class Cleaner
+    public class Cleaner : ICleaner
     {
 
         public ExceptionLogger log { get; protected set; }
         public Searcher search { get; protected set; }
         public DirectoryInfo root { get; protected set; }
+        
+
+
+
+
+
+
+
+
+        #region Old Version of Cleaner
+
+        /*
+
+
+
 
         public string companyID { get; protected set; }
         public string zipPath { get; protected set; }
@@ -156,12 +171,13 @@ namespace SearchZipDelete
             file.Close();
 
             CreateZipAndDeleteLeftover(folderPathString, zipName);
-            
 
             
         }      
-                       
+        */
+
+        #endregion
     }
-    
+
 
 }
