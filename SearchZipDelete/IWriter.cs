@@ -9,12 +9,13 @@ namespace SearchZipDelete
 {
     interface IWriter
     {
-        
 
+
+        void RegisterPath(string path);
 
         // Give the writeTo a path and it will write a the line of text to the given file
         // - should also check whether the file is valid.
-        void WriteLineTo(string path, string line);
+        void WriteLineToPath(string line);
 
 
        

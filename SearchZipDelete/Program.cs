@@ -15,7 +15,7 @@ namespace SearchZipDelete
 
             rm.WriteDiscrpeneciesToFile(@"C:\Users\roysh_000\Desktop\TestDir\Disc.txt");
 
-
+            Console.ReadKey();
 
         }
     }
