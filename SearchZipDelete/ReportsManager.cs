@@ -74,17 +74,14 @@ namespace SearchZipDelete
         public List<int> DBToDriveCheck()
         {
             List<int> idList = new List<int>();
-
-            int i = 1;
-
+            
             foreach (System.Data.DataRow row in dao.ds.TCDB_FilesToDelete.Rows)
             {
                 int id = Convert.ToInt32(row["reportid"].ToString());
 
                 if (IDCollection.Contains(id) == false)
                     idList.Add(id);
-
-                Console.WriteLine(i++);
+                
             }
 
             
