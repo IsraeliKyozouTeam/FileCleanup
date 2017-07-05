@@ -10,3 +10,7 @@ C:\Users\Sean\Desktop\FileCleanup-TestBranch\SearchZipDelete\obj\Debug\SearchZip
 C:\Users\Sean\Desktop\FileCleanup-TestBranch\SearchZipDelete\bin\Debug\SearchZipDelete.exe
 C:\Users\Sean\Desktop\FileCleanup-TestBranch\SearchZipDelete\bin\Debug\SearchZipDelete.pdb
 C:\Users\Sean\Desktop\FileCleanup-TestBranch\SearchZipDelete\obj\Debug\SearchZipDelete.csprojResolveAssemblyReference.cache
+C:\Users\roysh_000\Desktop\FileCleanup\SearchZipDelete\bin\Debug\SearchZipDelete.exe.config
+C:\Users\roysh_000\Desktop\FileCleanup\SearchZipDelete\obj\Debug\SearchZipDelete.exe
+C:\Users\roysh_000\Desktop\FileCleanup\SearchZipDelete\obj\Debug\SearchZipDelete.pdb
+C:\Users\roysh_000\Desktop\FileCleanup\SearchZipDelete\obj\Debug\SearchZipDelete.csprojResolveAssemblyReference.cache
