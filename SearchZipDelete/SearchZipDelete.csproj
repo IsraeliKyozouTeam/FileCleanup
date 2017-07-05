@@ -47,10 +47,6 @@
     <Compile Include="Cleaner.cs" />
     <Compile Include="DataAccessObject.cs" />
     <Compile Include="ExceptionLogger.cs" />
-    <Compile Include="FileDataSet.cs">
-      <DependentUpon>FileDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="FileDataSet.Designer.cs" />
     <Compile Include="FileDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

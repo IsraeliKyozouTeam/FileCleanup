@@ -57,6 +57,15 @@ from TCDB_FilesToDelete</CommandText>
               </DbCommand>
             </SelectCommand>
           </DbSource>
+          <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="TestDB.dbo.TCDB_FilesToDelete" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetData" MethodsParameterType="CLR" Modifier="Public" Name="GetData" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="GetData">
+            <SelectCommand>
+              <DbCommand CommandType="Text" ModifiedByUser="true">
+                <CommandText>select *
+from TCDB_FilesToDelete</CommandText>
+                <Parameters />
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
         </Sources>
       </DataSource>
     </xs:appinfo>
