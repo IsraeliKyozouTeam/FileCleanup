@@ -10,31 +10,20 @@ namespace SearchZipDelete
 {
     class Writer : IWriter
     {
+        
 
-        string textToWrite;
-
-        public Writer(string textToWrite = "")
+        public Writer()
         {
-            this.textToWrite = textToWrite;
         }
+        
 
-        public void AddToWrite(string text)
-        {
-            textToWrite += text;
-        }
-
-        public void RemoveFromWrite(string text)
-        {
-            textToWrite = Regex.Replace(textToWrite, text, "");
-        }
-
-        public void WriteTo(string path)
+        public void WriteLineTo(string path, string line)
         {
 
             try
             {
                 StreamWriter writer = new StreamWriter(path);
-                writer.Write(textToWrite);
+                writer.WriteLine(line);
                 writer.Close();
             }
             catch (Exception)
@@ -42,7 +31,7 @@ namespace SearchZipDelete
                 
             }
                 
-            
         }
+
     }
 }
