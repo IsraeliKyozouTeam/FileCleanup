@@ -2,7 +2,6 @@
 using System.IO;
 using System.IO.Compression;
 using System.Security.AccessControl;
-using System.IO.Compression;
 
 namespace SearchZipDelete
 {

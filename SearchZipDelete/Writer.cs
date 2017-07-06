@@ -39,6 +39,11 @@ namespace SearchZipDelete
             }
         }
 
+        public void NextLine()
+        {
+            WriteLineToPath("");
+        }
+
         public void Close()
         {
             writer.Close();

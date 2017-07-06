@@ -114,22 +114,19 @@ namespace SearchZipDelete
         public void WriteDiscrpeneciesToFile(string filePath)
         {
             List<int> discrepencyList = new List<int>();
-
-            discrepencyList = DriveToDBCheck();
-
+            
             writer.RegisterPath(filePath);
 
             writer.WriteLineToPath("ID's that exist in the Harddrive but not the Database");
-            foreach (int id in discrepencyList)
+            foreach (int id in DriveToDBCheck())
             {
                 Console.WriteLine(id);
                 writer.WriteLineToPath(id.ToString() + idToExtension[id]);
             }
-            
-            discrepencyList = DBToDriveCheck();
 
+            writer.NextLine();
             writer.WriteLineToPath("ID's that exist in the Database but not the Harddrive");
-            foreach (int id in discrepencyList)
+            foreach (int id in DBToDriveCheck())
             {
                 Console.WriteLine(id);
                 writer.WriteLineToPath(id.ToString() + idToExtension[id]);
